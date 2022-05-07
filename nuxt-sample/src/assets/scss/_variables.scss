@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+//=============================================//
+//
+// - styles --> variables.scss
+//
+//=============================================//
+
+// font
+//---------------------
+$fontFamily       : 'Noto Sans JP', "Lucida Grande", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "Meiryo UI", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+$fontSize         : 1.4rem;
+$fontSize-sp      : 1.3rem;
+$lineHeight       : 1.6;
+$bodyColor        : #fff;
+$fontColor        : #333;
+$linkColor        : #0000ff;
+$linkHoverColor   : #3366ff;
+$linkVisitedColor : #9900ff;
+
+// color
+//---------------------
+$white: #ffffff;
+$lightGray: #DDDDDD;
+$gray: #999999;
+$black: #000000;
+
+// device size
+//---------------------
+$device-l      : 1100px;
+$device-m      : 800px;
+$device-s      : 670px;
+
+
+// color
+//---------------------
+$borderColor   : #ccc;
+
+// transition
+//---------------------
+$transition    : all 0.3s ease;
+
+// mixin
+//---------------------
+@mixin clearfix {
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+
+@mixin text-link-underline {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+// プロパティのソート順
+//---------------------
+//- display
+//- box-sizing
+//- overflow
+//- position
+//- float
+//- content
+//-------------
+//- margin
+//- padding
+//- border
+//-------------
+//- width
+//- height
+//-------------
+//- background-image
+//- background-repeat
+//- background-position
+//- background-size
+//- background-attachment
+//- background-color
+//-------------
+//- box-shadow
+//- transition
+//-------------
+//- text-align
+//- vertical-align
+//- text-indent
+//-------------
+//- color
+//- font-size
+//- line-height
+//-------------
+//- cursor

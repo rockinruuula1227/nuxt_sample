@@ -1,0 +1,52 @@
+version: '3'
+services:
+  # nuxt開発用コンテナ
+  nuxt:
+    build:
+      context: ./_docker
+      dockerfile: Dockerfile.node
+    ports:
+      - "3000:3000"
+    working_dir: "/usr/local/src/nuxt-sample"
+    volumes:
+      - ".:/usr/local/src"
+      - "node_modules_volume:/usr/local/src/nuxt-sample/node_modules"
+    tty: true
+    command: npm run dev
+    networks:
+      - "nuxt-sample_v2_default"
+
+  # Storybook用コンテナ
+  storybook:
+    build:
+      context: ./_docker
+      dockerfile: Dockerfile.node
+    ports:
+      - "3003:3003"
+    working_dir: "/usr/local/src/nuxt-sample"
+    volumes:
+      - ".:/usr/local/src"
+      - "node_modules_volume:/usr/local/src/nuxt-sample/node_modules"
+    tty: true
+    command: npx nuxt-storybook
+    networks:
+      - "nuxt-sample_v2_default"
+
+  # nodeコマンド実行用コンテナ
+  command:
+    build:
+      context: ./_docker
+      dockerfile: Dockerfile.node
+    working_dir: "/usr/local/src/nuxt-sample"
+    volumes:
+      - ".:/usr/local/src"
+      - "node_modules_volume:/usr/local/src/nuxt-sample/node_modules"
+    tty: true
+    networks:
+      - "nuxt-sample_v2_default"
+
+networks:
+  nuxt-sample_v2_default:
+    external: true
+volumes:
+  node_modules_volume:
