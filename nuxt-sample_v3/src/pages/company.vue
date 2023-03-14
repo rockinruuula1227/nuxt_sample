@@ -1,0 +1,3 @@
+<template>
+  <h1>会社概要</h1>
+</template>
