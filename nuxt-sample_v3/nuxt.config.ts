@@ -8,7 +8,9 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/styles/global/_index.scss";'
+          additionalData: `
+          @use "@/assets/styles/global/_index.scss" as *;
+        `
         }
       }
     },

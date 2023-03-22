@@ -8,7 +8,15 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    }
   ],
   "framework": "@storybook/vue3",
   "core": {
@@ -23,9 +31,8 @@ module.exports = {
         preprocessorOptions: {
           scss: {
             additionalData: `
-            @import "../src/assets/styles/foundation/_index.scss";
-            @import "../src/assets/styles/global/_index.scss";
-            `,
+            @use "../src/assets/styles/global/_index.scss" as *;
+              `,
           },
         },
       },
